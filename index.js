@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const { Deta } = require("deta");
 const deta = Deta(process.env.PROJECT_KEY);
@@ -15,6 +16,7 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
@@ -36,7 +38,7 @@ app.get("/todos/", async (req, res) => {
 
 app.post("/todos/add", async (req, res) => {
   const { content, isFinished = false } = req.body;
-
+  
   if (!content) {
     res.status(200).json({ success: false, message: "請輸入內容" });
     return;
