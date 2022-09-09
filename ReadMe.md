@@ -1,5 +1,9 @@
 # Node.js + Express.js + deploy to Deta Micros
 
+## 簡述
+
+因 heroku 免費方案即將下架，於是找了 Deta 來當作替代方案。使用了 Express 當作伺服器並練習使用 Deta Base 當作資料庫，建立 API 供之前憐惜的 TodoList 串接。
+
 ## 開發模式下
 
 開啟 108 行註解啟動
